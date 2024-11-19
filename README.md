@@ -1,1 +1,1 @@
-# biztools-Iterator-Based-Analytics-for-Scalable-Business-Intelligence
+# biztools: Iterator-Based Analytics for Scalable Business Intelligence
