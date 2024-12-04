@@ -28,7 +28,7 @@ class StreamAggregationsScratch:
         return result
 
     # 1. Count
-    @staticmethods
+    @staticmethod
     def stream_group_count(df, group_columns, value_column, output_type='float'):
         """
         Computes the total number of items in each group.
