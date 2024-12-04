@@ -4,16 +4,25 @@ class StreamAggregationsScratch:
     @staticmethod
     def _validate_inputs(df, group_columns, value_column):
         """
-        Validates the input DataFrame and columns.
+        Validates the input data and columns.
         """
-        if not isinstance(df, pd.DataFrame):
-            raise TypeError("The input data must be a Pandas DataFrame.")
+        # Convert dictionary to DataFrame
+        if isinstance(input_data, dict):
+            input_data = pd.DataFrame(input_data)
+        # Convert Series to DataFrame
+        elif isinstance(input_data, pd.Series):
+            input_data = input_data.reset_index()
+        
+        # Check if the input is now a DataFrame
+        if not isinstance(input_data, pd.DataFrame):
+            raise TypeError("The input data must be a Pandas DataFrame, Series, or dictionary.")
+        
         if isinstance(group_columns, str):
             group_columns = [group_columns]
         if not all(col in df.columns for col in group_columns):
-            raise ValueError(f"One or more columns in '{group_columns}' not found in DataFrame.")
+            raise ValueError(f"One or more columns in '{group_columns}' not found in Data.")
         if value_column not in df.columns:
-            raise ValueError(f"Column '{value_column}' not found in DataFrame.")
+            raise ValueError(f"Column '{value_column}' not found in Data.")
         if not pd.api.types.is_numeric_dtype(df[value_column]):
             raise TypeError(f"The value column '{value_column}' must contain numeric data.")
 
