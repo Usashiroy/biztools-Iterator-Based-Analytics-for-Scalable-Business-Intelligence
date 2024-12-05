@@ -22,35 +22,44 @@ class TestStreamAggregationsScratch(unittest.TestCase):
     
     def test_stream_group_count(self):
         result = StreamAggregationsScratch.stream_group_count(self.df, ['store'], 'sales')
+        print("Result for stream_group_count:\n", result)  # Print result for debugging
         self.assertEqual(result.shape[0], 3)  # Should return 3 groups (for 3 stores)
 
     def test_stream_group_first_last(self):
         result = StreamAggregationsScratch.stream_group_first_last(self.df, ['store'], 'sales')
+        print("Result for stream_group_first_last:\n", result)  # Print result for debugging
         self.assertEqual(result.shape[0], 3)  # Should return 3 groups (for 3 stores)
 
     def test_stream_group_mean_median(self):
         result = StreamAggregationsScratch.stream_group_mean_median(self.df, ['store'], 'sales')
+        print("Result for stream_group_mean_median:\n", result)  # Print result for debugging
         self.assertEqual(result.shape[0], 3)  # Should return 3 groups (for 3 stores)
     
     def test_stream_group_min_max(self):
         result = StreamAggregationsScratch.stream_group_min_max(self.df, ['store'], 'sales')
+        print("Result for stream_group_min_max:\n", result)  # Print result for debugging
         self.assertEqual(result.shape[0], 3)  # Should return 3 groups (for 3 stores)
     
     def test_stream_group_std_var(self):
         result = StreamAggregationsScratch.stream_group_std_var(self.df, ['store'], 'sales')
+        print("Result for stream_group_std_var:\n", result)  # Print result for debugging
         self.assertEqual(result.shape[0], 3)  # Should return 3 groups (for 3 stores)
     
     def test_stream_group_mad(self):
         result = StreamAggregationsScratch.stream_group_mad(self.df, ['store'], 'sales')
+        print("Result for stream_group_mad:\n", result)  # Print result for debugging
         self.assertEqual(result.shape[0], 3)  # Should return 3 groups (for 3 stores)
     
     def test_stream_group_prod(self):
         result = StreamAggregationsScratch.stream_group_prod(self.df, ['store'], 'sales')
+        print("Result for stream_group_prod:\n", result)  # Print result for debugging
         self.assertEqual(result.shape[0], 3)  # Should return 3 groups (for 3 stores)
     
     def test_stream_group_sum(self):
         result = StreamAggregationsScratch.stream_group_sum(self.df, ['store'], 'sales')
+        print("Result for stream_group_sum:\n", result)  # Print result for debugging
         self.assertEqual(result.shape[0], 3)  # Should return 3 groups (for 3 stores)
+
     
     # --- Invalid Inputs ---
     
