@@ -1,6 +1,6 @@
 import pandas as pd
 
-class StreamAggregationsScratch:
+class StreamAggregations:
     @staticmethod
     def _validate_inputs(df, group_columns, value_column):
         """
@@ -42,7 +42,7 @@ class StreamAggregationsScratch:
         """
         Computes the total number of items in each group.
         """
-        StreamAggregationsScratch._validate_inputs(df, group_columns, value_column)
+        StreamAggregations._validate_inputs(df, group_columns, value_column)
         if isinstance(group_columns, str):
             group_columns = [group_columns]
         result = {}
@@ -52,7 +52,7 @@ class StreamAggregationsScratch:
             list(result.items()),
             columns=group_columns + ["count"]
         )
-        result_df["count"] = StreamAggregationsScratch._format_output(result_df["count"], output_type)
+        result_df["count"] = StreamAggregations._format_output(result_df["count"], output_type)
         return result_df
 
     # 2. First and Last
@@ -61,7 +61,7 @@ class StreamAggregationsScratch:
         """
         Computes the first and last item for each group.
         """
-        StreamAggregationsScratch._validate_inputs(df, group_columns, value_column)
+        StreamAggregations._validate_inputs(df, group_columns, value_column)
         if isinstance(group_columns, str):
             group_columns = [group_columns]
         result = []
@@ -71,8 +71,8 @@ class StreamAggregationsScratch:
             last = values[-1] if values else None
             result.append(group + (first, last))
         result_df = pd.DataFrame(result, columns=group_columns + ["first", "last"])
-        result_df["first"] = StreamAggregationsScratch._format_output(result_df["first"], output_type)
-        result_df["last"] = StreamAggregationsScratch._format_output(result_df["last"], output_type)
+        result_df["first"] = StreamAggregations._format_output(result_df["first"], output_type)
+        result_df["last"] = StreamAggregations._format_output(result_df["last"], output_type)
         return result_df
 
     # 3. Mean and Median
@@ -81,7 +81,7 @@ class StreamAggregationsScratch:
         """
         Computes the mean and median for each group.
         """
-        StreamAggregationsScratch._validate_inputs(df, group_columns, value_column)
+        StreamAggregations._validate_inputs(df, group_columns, value_column)
         if isinstance(group_columns, str):
             group_columns = [group_columns]
         result = []
@@ -91,8 +91,8 @@ class StreamAggregationsScratch:
             median = sorted(values)[len(values) // 2] if values else None
             result.append(group + (mean, median))
         result_df = pd.DataFrame(result, columns=group_columns + ["mean", "median"])
-        result_df["mean"] = StreamAggregationsScratch._format_output(result_df["mean"], output_type)
-        result_df["median"] = StreamAggregationsScratch._format_output(result_df["median"], output_type)
+        result_df["mean"] = StreamAggregations._format_output(result_df["mean"], output_type)
+        result_df["median"] = StreamAggregations._format_output(result_df["median"], output_type)
         return result_df
 
     # 4. Minimum and Maximum
@@ -101,7 +101,7 @@ class StreamAggregationsScratch:
         """
         Computes the minimum and maximum for each group.
         """
-        StreamAggregationsScratch._validate_inputs(df, group_columns, value_column)
+        StreamAggregations._validate_inputs(df, group_columns, value_column)
         if isinstance(group_columns, str):
             group_columns = [group_columns]
         result = []
@@ -111,8 +111,8 @@ class StreamAggregationsScratch:
             max_val = max(values) if values else None
             result.append(group + (min_val, max_val))
         result_df = pd.DataFrame(result, columns=group_columns + ["min", "max"])
-        result_df["min"] = StreamAggregationsScratch._format_output(result_df["min"], output_type)
-        result_df["max"] = StreamAggregationsScratch._format_output(result_df["max"], output_type)
+        result_df["min"] = StreamAggregations._format_output(result_df["min"], output_type)
+        result_df["max"] = StreamAggregations._format_output(result_df["max"], output_type)
         return result_df
 
     # 5. Standard Deviation and Variance
@@ -121,7 +121,7 @@ class StreamAggregationsScratch:
         """
         Computes the standard deviation and variance for each group.
         """
-        StreamAggregationsScratch._validate_inputs(df, group_columns, value_column)
+        StreamAggregations._validate_inputs(df, group_columns, value_column)
         if isinstance(group_columns, str):
             group_columns = [group_columns]
         result = []
@@ -135,8 +135,8 @@ class StreamAggregationsScratch:
             std = var ** 0.5
             result.append(group + (std, var))
         result_df = pd.DataFrame(result, columns=group_columns + ["std", "var"])
-        result_df["std"] = StreamAggregationsScratch._format_output(result_df["std"], output_type)
-        result_df["var"] = StreamAggregationsScratch._format_output(result_df["var"], output_type)
+        result_df["std"] = StreamAggregations._format_output(result_df["std"], output_type)
+        result_df["var"] = StreamAggregations._format_output(result_df["var"], output_type)
         return result_df
 
     # 6. Mean Absolute Deviation
@@ -145,7 +145,7 @@ class StreamAggregationsScratch:
         """
         Computes the mean absolute deviation for each group.
         """
-        StreamAggregationsScratch._validate_inputs(df, group_columns, value_column)
+        StreamAggregations._validate_inputs(df, group_columns, value_column)
         if isinstance(group_columns, str):
             group_columns = [group_columns]
         result = []
@@ -158,7 +158,7 @@ class StreamAggregationsScratch:
             mad = sum(abs(x - mean) for x in values) / len(values)
             result.append(group + (mad,))
         result_df = pd.DataFrame(result, columns=group_columns + ["mad"])
-        result_df["mad"] = StreamAggregationsScratch._format_output(result_df["mad"], output_type)
+        result_df["mad"] = StreamAggregations._format_output(result_df["mad"], output_type)
         return result_df
 
     # 7. Product
@@ -167,7 +167,7 @@ class StreamAggregationsScratch:
         """
         Computes the product of all items in each group.
         """
-        StreamAggregationsScratch._validate_inputs(df, group_columns, value_column)
+        StreamAggregations._validate_inputs(df, group_columns, value_column)
         if isinstance(group_columns, str):
             group_columns = [group_columns]
         result = []
@@ -178,7 +178,7 @@ class StreamAggregationsScratch:
                 prod *= val
             result.append(group + (prod,))
         result_df = pd.DataFrame(result, columns=group_columns + ["prod"])
-        result_df["prod"] = StreamAggregationsScratch._format_output(result_df["prod"], output_type)
+        result_df["prod"] = StreamAggregations._format_output(result_df["prod"], output_type)
         return result_df
 
     # 8. Sum
@@ -187,7 +187,7 @@ class StreamAggregationsScratch:
         """
         Computes the sum of all items in each group.
         """
-        StreamAggregationsScratch._validate_inputs(df, group_columns, value_column)
+        StreamAggregations._validate_inputs(df, group_columns, value_column)
         if isinstance(group_columns, str):
             group_columns = [group_columns]
         result = []
@@ -195,5 +195,5 @@ class StreamAggregationsScratch:
             values = group_data[value_column].dropna().tolist()
             result.append(group + (sum(values),))
         result_df = pd.DataFrame(result, columns=group_columns + ["sum"])
-        result_df["sum"] = StreamAggregationsScratch._format_output(result_df["sum"], output_type)
+        result_df["sum"] = StreamAggregations._format_output(result_df["sum"], output_type)
         return result_df
