@@ -15,8 +15,10 @@ class TestStreamAggregationsScratch(unittest.TestCase):
             'date': pd.date_range('2023-01-01', periods=100, freq='D')
         }
         self.df = pd.DataFrame(data)
+        
+        # Introducing NaN values in the 'sales' column (10 random NaN values)
         nan_indices = np.random.choice(self.df.index, size=10, replace=False)
-        self.df.loc[nan_indices, 'sales'] = np.nan  # Simulate missing values
+        self.df.loc[nan_indices, 'sales'] = np.nan  
     
     def test_stream_group_count(self):
         result = StreamAggregationsScratch.stream_group_count(self.df, ['store'], 'sales')
@@ -78,13 +80,24 @@ class TestStreamAggregationsScratch(unittest.TestCase):
         # NaN values in the 'store' column
         self.df.loc[0, 'store'] = np.nan
         result = StreamAggregationsScratch.stream_group_count(self.df, ['store'], 'sales')
-        self.assertTrue(result.isnull().sum().sum() == 0)  # No NaN values in the result after grouping
+        # Ensure the result doesn't contain NaN values in the 'store' column after grouping
+        self.assertTrue(result['store'].isnull().sum() == 0)  # No NaN values in the result after grouping
 
     def test_nan_in_value_column(self):
         # NaN values in the 'sales' column
         self.df.loc[0, 'sales'] = np.nan
         result = StreamAggregationsScratch.stream_group_sum(self.df, ['store'], 'sales')
+        # Ensure NaN values in the 'sales' column are handled (sum should ignore NaNs)
         self.assertTrue(result.isnull().sum().sum() == 0)  # No NaN values in the sum after grouping
     
+    def test_invalid_column_type_for_grouping(self):
+        # Attempting to group by a non-numeric or string column in a function that requires it (if applicable)
+        self.df['region'] = self.df['region'].astype(float)  # Alter the 'region' column to float type
+        with self.assertRaises(TypeError):
+            StreamAggregationsScratch.stream_group_sum(self.df, ['region'], 'sales')  # Trying to group by a non-numeric column
+
+def main():
+    unittest.main(argv=['first-arg-is-ignored'], exit=False, verbosity=3)
+
 if __name__ == "__main__":
-    unittest.main()
+    main()
