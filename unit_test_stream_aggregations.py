@@ -19,7 +19,11 @@ class TestStreamAggregations(unittest.TestCase):
         # Introducing NaN values in the 'sales' column (10 random NaN values)
         nan_indices = np.random.choice(self.df.index, size=10, replace=False)
         self.df.loc[nan_indices, 'sales'] = np.nan  
-    
+
+    # ==========================
+    # Valid input tests
+    # ==========================
+ 
     def test_stream_group_count(self):
         result = StreamAggregations.stream_group_count(self.df, ['store'], 'sales')
         self.assertEqual(result.shape[0], 3)  # Should return 3 groups (for 3 stores)
@@ -52,7 +56,9 @@ class TestStreamAggregations(unittest.TestCase):
         result = StreamAggregations.stream_group_sum(self.df, ['store'], 'sales')
         self.assertEqual(result.shape[0], 3)  # Should return 3 groups (for 3 stores)
     
-    # --- Invalid Inputs ---
+    # ==========================
+    # Invalid input tests
+    # ==========================
     
     def test_invalid_group_by_column(self):
         # Invalid column name that doesn't exist in the dataframe
