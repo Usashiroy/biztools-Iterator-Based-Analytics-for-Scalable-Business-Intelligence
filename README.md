@@ -1,6 +1,17 @@
 # biztools: Iterator-Based Analytics for Scalable Business Intelligence
 Drawing on the iterator-based approach of Python’s itertools, the biztools package aims to provide a solution for business analytics. By enabling lazy evaluation for business metric calculation like aggregations, rolling averages, and fiscal period calculations, this package is tailored for large datasets and scenarios such as streaming data and time-series analytics. The package will support analytics in the domains of financial simulations, KPI tracking, and data-driven operational decision-making, helping users compute insights without overwhelming system memory. 
 
+To optimize underlying operations, we will be using:
+
+- **Pandas**: For efficient tabular data handling, including data manipulation and analysis.
+- **NumPy**: For vectorized operations on datasets, improving the performance of numerical computations.
+- **datetime**: For date range generation and timestamp manipulation, essential for temporal data analysis.
+- **math**: For basic numeric operations like calculations and constants (e.g., `math.sqrt`, `math.pi`).
+- **scipy**: For statistical and scientific computations, such as correlation analysis, optimization, and more advanced mathematical operations.
+- **collections.abc.Iterable**: To validate and ensure inputs are proper iterables when processing sequences.
+
+Our work will focus on implementing the core functionality of the `biztools` package, leveraging these libraries to enhance performance, reliability, and scalability.
+
 ## 1. Stream Aggregations
 The StreamAggregations class provides methods to perform common group-based aggregations (such as sum, mean, count, min, max, etc.) on numerical **datasets**. It handles various aggregation operations, offering flexibility in output types, such as int and float.
 
