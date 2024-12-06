@@ -3,7 +3,7 @@ from collections import Counter
 class IterableStatistics:
     # 1. Count
     @staticmethod
-    def stream_count(iterables):
+    def iterable_count(iterables):
         """
         Counts the number of valid (non-None) elements in the iterable.
         """
@@ -13,7 +13,7 @@ class IterableStatistics:
 
     # 2. Mode
     @staticmethod
-    def stream_mode(iterables):
+    def iterable_mode(iterables):
         """
         Finds the most frequent element(s) in the iterable.
         """
@@ -27,7 +27,7 @@ class IterableStatistics:
 
     # 3. Mean and Median
     @staticmethod
-    def stream_mean_median(iterables):
+    def iterable_mean_median(iterables):
         """
         Calculates the mean and median of numeric values in the iterable.
         """
@@ -46,7 +46,7 @@ class IterableStatistics:
 
     # 4. Minimum and Maximum
     @staticmethod
-    def stream_min_max(iterables):
+    def iterable_min_max(iterables):
         """
         Finds the minimum and maximum values in the iterable.
         """
@@ -61,7 +61,7 @@ class IterableStatistics:
 
     # 5. Standard Deviation and Variance
     @staticmethod
-    def stream_std_var(iterables):
+    def iterable_std_var(iterables):
         """
         Calculates the standard deviation and variance of numeric values in the iterable.
         """
@@ -80,7 +80,7 @@ class IterableStatistics:
 
     # 6. Mean Absolute Deviation
     @staticmethod
-    def stream_mad(iterables):
+    def iterable_mad(iterables):
         """
         Calculates the mean absolute deviation of numeric values in the iterable.
         """
@@ -98,7 +98,7 @@ class IterableStatistics:
 
     # 7. Product
     @staticmethod
-    def stream_prod(iterables):
+    def iterable_prod(iterables):
         """
         Calculates the product of all numeric values in the iterable.
         """
@@ -116,7 +116,7 @@ class IterableStatistics:
 
     # 8. Sum
     @staticmethod
-    def stream_sum(iterables):
+    def iterable_sum(iterables):
         """
         Calculates the sum of all numeric values in the iterable.
         """
@@ -131,7 +131,7 @@ class IterableStatistics:
 
     # 9. First and Last
     @staticmethod
-    def stream_first_last(iterables):
+    def iterable_first_last(iterables):
         """
         Retrieves the first and last elements of the iterable.
         """
