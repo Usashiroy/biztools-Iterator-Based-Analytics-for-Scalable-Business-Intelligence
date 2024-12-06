@@ -1,7 +1,13 @@
+import sys
+import os
+current_directory = os.getcwd()
+main_directory_path = os.path.abspath(os.path.join(current_directory, '..'))
+sys.path.insert(0, main_directory_path)
+
 import unittest
 import numpy as np
-from lazy_rolling_window import LazyRollingWindow
 import random
+from lazy_rolling_window import LazyRollingWindow
 
 # Assuming LazyRollingWindow is already imported or defined in the same file.
 
