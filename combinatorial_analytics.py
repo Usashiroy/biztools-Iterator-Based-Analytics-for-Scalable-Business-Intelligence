@@ -7,10 +7,10 @@ class CombinatorialAnalytics:
         Initialize with the data to perform analytics on.
         
         Args:
-            data (list): List of dictionaries (rows of data).
+            data (iterable): Any iterable (list, tuple, set, etc.) containing the data.
         """
-        if not isinstance(data, list) or not all(isinstance(row, dict) for row in data):
-            raise TypeError("Data must be a list of dictionaries.")
+        if not hasattr(data, '__iter__'):
+            raise TypeError("Data must be an iterable.")
         self.data = data
 
     def pairwise_correlation(self, numeric_iterable1, numeric_iterable2):
@@ -48,7 +48,7 @@ class CombinatorialAnalytics:
         Finds subsets of data that add up to a specific target.
         
         Args:
-            numeric_iterable (list): List of numerical data.
+            numeric_iterable (iterable): Iterable of numerical data.
             target_sum (float): The target sum for the subset.
         
         Returns:
@@ -58,7 +58,7 @@ class CombinatorialAnalytics:
             raise ValueError("numeric_iterable cannot be empty.")
         
         if not isinstance(numeric_iterable, (list, tuple, set)) or not all(isinstance(x, (int, float)) for x in numeric_iterable):
-            raise TypeError("numeric_iterable must be a list of numerical values.")
+            raise TypeError("numeric_iterable must be an iterable of numerical values.")
         if not isinstance(target_sum, (int, float)):
             raise TypeError("Target sum must be a numeric value.")
         
@@ -82,7 +82,7 @@ class CombinatorialAnalytics:
         Generates all possible r-sized combinations for specified data.
         
         Args:
-            numeric_iterable (list): List of data elements.
+            numeric_iterable (iterable): Iterable of data elements.
             r (int): Size of each combination.
             unique (bool): Whether to ensure unique combinations when input data has duplicates.
         
@@ -123,7 +123,7 @@ class CombinatorialAnalytics:
         Generates all potential growth paths by rearranging data values.
         
         Args:
-            numeric_iterable (list): List of numerical values.
+            numeric_iterable (iterable): Iterable of numerical values.
         
         Returns:
             list: List of all permutations of growth paths.
@@ -132,7 +132,7 @@ class CombinatorialAnalytics:
             raise ValueError("numeric_iterable cannot be empty.")
         
         if not isinstance(numeric_iterable, (list, tuple, set)) or not all(isinstance(x, (int, float)) for x in numeric_iterable):
-            raise TypeError("numeric_iterable must be a list of numerical values.")
+            raise TypeError("numeric_iterable must be an iterable of numerical values.")
         
         result = []
         n = len(numeric_iterable)
