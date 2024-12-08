@@ -1,7 +1,7 @@
 # Biztools: Iterator-Based Analytics for Scalable Business Intelligence
 Drawing on the iterator-based approach of Python’s itertools, the biztools package aims to provide a solution for business analytics. By enabling lazy evaluation for business metric calculation like aggregations, rolling averages, and fiscal period calculations, this package is tailored for large datasets and scenarios such as streaming data and time-series analytics. The package will support analytics in the domains of financial simulations, KPI tracking, and data-driven operational decision-making, helping users compute insights without overwhelming system memory. 
 
-The tools are implemented on **[Sales Data](https://github.com/Usashiroy/biztools-Iterator-Based-Analytics-for-Scalable-Business-Intelligence/blob/main/Biztools%20on%20Sales%20data/biztools%20on%20sales%20data.ipynb)** to extract valuable insights using dynamic aggregations, statistical analysis, and financial simulations. 📊 Stream aggregations track sales trends, while iterable statistics 🧮 monitor order progress, highlighting potential delays. 🔍 Lazy rolling windows smooth data by filtering out outliers for accurate trends. 📈 Combinatorial analytics perform Pareto analysis to pinpoint top products 🏆, and date utilities 🗓️ optimize scheduling by adjusting for working days. 🚀 Stream KPIs monitor revenue growth 💵, and financial simulations 💡 forecast future profitability, empowering businesses to make informed decisions and improve sales strategies.
+The tools are implemented on **[Sales Data](https://github.com/Usashiroy/biztools-Iterator-Based-Analytics-for-Scalable-Business-Intelligence/blob/main/Biztools%20on%20Sales%20data/biztools%20on%20sales%20data.ipynb)** to extract valuable insights using dynamic aggregations, statistical analysis, and financial simulations. Stream aggregations track sales trends, while iterable statistics monitor order progress, highlighting potential delays. Lazy rolling windows smooth data by filtering out outliers for accurate trends. Combinatorial analytics perform Pareto analysis to pinpoint top products, and date utilities optimize scheduling by adjusting for working days. Stream KPIs monitor revenue growth, and financial simulations forecast future profitability, empowering businesses to make informed decisions and improve sales strategies.
 
 To optimize underlying operations, we will be using:
 
@@ -15,7 +15,7 @@ To optimize underlying operations, we will be using:
 
 Our work will focus on implementing the core functionality of the `biztools` package, leveraging these libraries to enhance performance, reliability, and scalability.
 
-## 1. Stream Aggregations
+## 1. Stream Aggregations 📊
 The StreamAggregations class provides methods to perform common group-based aggregations (such as sum, mean, count, min, max, etc.) on numerical **datasets**. It handles various aggregation operations, offering flexibility in output types, such as int and float.
 
 ### Features:
@@ -51,7 +51,7 @@ print(count_df)
 mean_median_df = aggregations.stream_group_mean_median(df, group_columns=['Category'], value_column='Value')
 print(mean_median_df)
 ```
-## 2. Iterable Statistics
+## 2. Iterable Statistics 🧮
 IterableStatistics provides methods for statistical operations on general iterables (lists, tuples, sets, and strings). It offers operations like count, mode, mean, median, min, max, standard deviation, variance, sum, and more, making it a flexible tool for simple data collections.
 
 ### Difference from Stream Aggregations:
@@ -93,7 +93,7 @@ print("Min:", min_val)  # Output: Min: 1
 print("Max:", max_val)  # Output: Max: 5
 ```
 
-## 3. Lazy Rolling Window
+## 3. Lazy Rolling Window 🔄
 The LazyRollingWindow class allows users to efficiently apply a rolling window on a numeric dataset. It provides methods for calculating statistical properties, detecting outliers, filtering values, and detecting seasonality in rolling windows.
 
 ### Features:
@@ -136,7 +136,7 @@ rolling_window.next_window()
 print("Next Window Sum:", rolling_window.get_window_sum())
 ```
 
-## 4. Combinatorial Analytics
+## 4. Combinatorial Analytics 🔢
 The CombinatorialAnalytics class provides methods for performing combinatorial and analytical operations on numerical datasets, including calculating correlations, finding subsets with a specific sum, generating combinations, analyzing growth paths, and applying Pareto analysis.
 
 ### Features:
@@ -160,7 +160,7 @@ top_contributors = comb_analytics.pareto_analysis(price, region, top_percentage=
 print(top_contributors)
 ```
 
-## 5. Iterator Dates Utils
+## 5. Iterator Dates Utils 🗓️
 
 The IteratorDateUtils class provides utility functions for performing various date-related operations on iterable data, such as calculating business days, adding/subtracting business days, determining weekdays, and calculating date differences.
 
@@ -191,7 +191,7 @@ num_days = 3
 result_df = IteratorDateUtils.add_business_days(df, date_col="date", num_days=num_days, new_col_name="date_plus_3_business_days")
 ```
 
-## 6. Stream KPI Calculations
+## 6. Stream KPI Calculations 📈
 
 The StreamKpiCalculations class provides functions to calculate essential business metrics such as revenue growth, churn rate, and growth rate over time, with data validation and rounding for precision.
 
@@ -217,7 +217,7 @@ result = StreamKpiCalculations.stream_revenue_growth(data, revenue_col="revenue"
 
 ```
 
-## 7. Financial Simulation
+## 7. Financial Simulation 💰
 
 The FinancialSimulation class provides methods for running simulations to project investment growth, calculate profit margins, and combine multiple scenarios for financial analysis.
 
