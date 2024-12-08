@@ -1,8 +1,6 @@
 import pandas as pd
 from pandas.tseries.offsets import BDay
 from collections.abc import Iterable
-from pandas.tseries.holiday import USFederalHolidayCalendar
-import holidays
 
 class IteratorDateUtils:
     @staticmethod
