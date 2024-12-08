@@ -1,6 +1,8 @@
 # biztools: Iterator-Based Analytics for Scalable Business Intelligence
 Drawing on the iterator-based approach of Python’s itertools, the biztools package aims to provide a solution for business analytics. By enabling lazy evaluation for business metric calculation like aggregations, rolling averages, and fiscal period calculations, this package is tailored for large datasets and scenarios such as streaming data and time-series analytics. The package will support analytics in the domains of financial simulations, KPI tracking, and data-driven operational decision-making, helping users compute insights without overwhelming system memory. 
 
+The tools are implemented on **[Sales Data](https://github.com/Usashiroy/biztools-Iterator-Based-Analytics-for-Scalable-Business-Intelligence/blob/usashiroy/Biztools%20on%20Sales%20data/biztools%20on%20sales%20data.ipynb)** to extract valuable insights using dynamic aggregations, statistical analysis, and financial simulations. 📊 Stream aggregations track sales trends, while iterable statistics 🧮 monitor order progress, highlighting potential delays. 🔍 Lazy rolling windows smooth data by filtering out outliers for accurate trends. 📈 Combinatorial analytics perform Pareto analysis to pinpoint top products 🏆, and date utilities 🗓️ optimize scheduling by adjusting for working days. 🚀 Stream KPIs monitor revenue growth 💵, and financial simulations 💡 forecast future profitability, empowering businesses to make informed decisions and improve sales strategies.
+
 To optimize underlying operations, we will be using:
 
 - **Pandas**: For efficient tabular data handling, including data manipulation and analysis.
@@ -69,23 +71,23 @@ Unlike StreamAggregations (which works with DataFrames/Series), IterableStatisti
 ```
 # Example for Count
 iterables = [1, 2, 3, None, 5]
-count = IterableStatistics.stream_count(iterables)
+count = IterableStatistics.iterable_count(iterables)
 print("Count:", count)  # Output: Count: 4
 
 # Example for Mode
 iterables = [1, 2, 2, 3, 3, 3]
-mode = IterableStatistics.stream_mode(iterables)
+mode = IterableStatistics.iterable_mode(iterables)
 print("Mode:", mode)  # Output: Mode: [3]
 
 # Example for Mean and Median
 iterables = [1, 2, 3, 4, 5]
-mean, median = IterableStatistics.stream_mean_median(iterables)
+mean, median = IterableStatistics.iterable_mean_median(iterables)
 print("Mean:", mean)  # Output: Mean: 3.0
 print("Median:", median)  # Output: Median: 3
 
 # Example for Min and Max
 iterables = [1, 2, 3, 4, 5]
-min_val, max_val = IterableStatistics.stream_min_max(iterables)
+min_val, max_val = IterableStatistics.iterable_min_max(iterables)
 print("Min:", min_val)  # Output: Min: 1
 print("Max:", max_val)  # Output: Max: 5
 ```
@@ -149,7 +151,7 @@ from combinatorial_analytics import CombinatorialAnalytics
 
 # Data
 price = [100, 200, 300, 400, 500]
-region = [North, South, Southwest, East, West]
+region = ['North', 'South', 'Southwest', 'East', 'West']
 
 # Initialize and run Pareto analysis
 comb_analytics = CombinatorialAnalytics(price)
