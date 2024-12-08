@@ -8,7 +8,7 @@ To optimize underlying operations, we will be using:
 - **Pandas**: For efficient tabular data handling, including data manipulation and analysis.
 - **NumPy**: For vectorized operations on datasets, improving the performance of numerical computations.
 - **datetime**: For date range generation and timestamp manipulation, essential for temporal data analysis.
-- **math**: For basic numeric operations like calculations and constants (e.g., `math.sqrt`, `math.pi`).
+- **math**: For basic numeric operations like calculations and constants (e.g., math.sqrt, math.pi).
 - **scipy**: For statistical and scientific computations, such as correlation analysis, optimization, and more advanced mathematical operations.
 - **collections.abc.Iterable**: To validate and ensure inputs are proper iterables when processing sequences.
 - **itertools**: For efficient looping and iteration over large datasets, providing functions like cycle, count, and permutations to simplify repetitive tasks.
