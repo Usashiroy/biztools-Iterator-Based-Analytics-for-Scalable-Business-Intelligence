@@ -156,3 +156,100 @@ comb_analytics = CombinatorialAnalytics(price)
 top_contributors = comb_analytics.pareto_analysis(price, region, top_percentage=20)
 print(top_contributors)
 ```
+
+## 5. Iterator Dates Utils
+
+The IteratorDateUtils class provides utility functions for performing various date-related operations on iterable data, such as calculating business days, adding/subtracting business days, determining weekdays, and calculating date differences.
+
+### Features:
+
+1. **business_days_between_rows**: Calculates the difference between two rows e.g. a time series in days.
+2. **iter_next_working_day**: Finds the next working day from the date.
+3. **iter_business_days**: Calculates number of business days between two date columns.
+4. **add_business_days**: Add business days to date.
+5. **subtract_business_days**: Subtract business days from date.
+6. **is_business_day**: Finds out if the date is a business day or not.
+7. **weekday_name**: Returns the weekday.
+8. **days_difference**: Calculates the number of days between dates.
+
+### Example Usage:
+
+```
+from iterator_date_utils import IteratorDateUtils
+
+#data
+data = {
+    "date": ["2023-12-01", "2023-12-02", "2023-12-03", "2023-12-04"]  # Includes a weekend
+}
+df = pd.DataFrame(data)
+df["date"] = pd.to_datetime(df["date"])
+num_days = 3
+
+result_df = IteratorDateUtils.add_business_days(df, date_col="date", num_days=num_days, new_col_name="date_plus_3_business_days")
+```
+
+## 6. Stream KPI Calculations
+
+The StreamKpiCalculations class provides functions to calculate essential business metrics such as revenue growth, churn rate, and growth rate over time, with data validation and rounding for precision.
+
+### Features:
+
+1. **stream_revenue_growth**: Calculates the revenue growth between each row in a specified column.
+2. **stream_churn_rate**: Calculates the churn rate between two columns (e.g., start and end of customer lifecycle).
+3. **stream_growth_rate**: Calculates the growth rate between two columns.
+
+### Example Usage:
+
+```
+from stream_kpi_calculations import StreamKpiCalculations
+
+#Data
+data = pd.DataFrame({
+    "month": ["Jan", "Feb", "Mar", "Apr"],
+    "revenue": [1000, 1200, 1500, 1800]
+})
+
+# Calculate revenue growth
+result = StreamKpiCalculations.stream_revenue_growth(data, revenue_col="revenue")
+
+```
+
+## 7. Financial Simulation
+
+The FinancialSimulation class provides methods for running simulations to project investment growth, calculate profit margins, and combine multiple scenarios for financial analysis.
+
+### Types:
+
+1. **simulate_investment_growth**: Simulates the growth of an investment over time.
+2. **simulate_profit_margin**: Simulates the profit based on revenue and profit margin.
+
+### Features:
+
+1. **run_simulation**: Calculates the revenue growth between each row in a specified column.
+2. **run_multiple_simulations**: Calculates the churn rate between two columns (e.g., start and end of customer lifecycle).
+
+### Example Usage:
+
+1. Simulate Investment Growth
+
+```
+from your_module_name import FinancialSimulation
+
+# Simulate investment growth
+final_value = FinancialSimulation.simulate_investment_growth(
+    principal=1000, rate_of_return=0.05, years=10
+)
+
+```
+
+2. Simulate Profit Margin
+
+```
+from your_module_name import FinancialSimulation
+
+# Simulate profit margin
+profit = FinancialSimulation.simulate_profit_margin(
+    revenue=20000, profit_margin_percentage=0.2
+)
+
+```
