@@ -13,7 +13,7 @@ To optimize underlying operations, we will be using:
 - **collections.abc.Iterable**: To validate and ensure inputs are proper iterables when processing sequences.
 - **itertools**: For efficient looping and iteration over large datasets and to simplify repetitive tasks.
 
-Our work will focus on implementing the core functionality of the `biztools` package, leveraging these libraries to enhance performance, reliability, and scalability.
+Our work will focus on implementing the core functionality of the biztools package, leveraging these libraries to enhance performance, reliability, and scalability.
 
 ## 1. Stream Aggregations 📊
 The StreamAggregations class provides methods to perform common group-based aggregations (such as sum, mean, count, min, max, etc.) on numerical **datasets**. It handles various aggregation operations, offering flexibility in output types, such as int and float.
