@@ -258,3 +258,12 @@ profit = FinancialSimulation.simulate_profit_margin(
 ```
 ## Conclusion:
 The **biztools** package offers efficient, iterator-based solutions for scalable business intelligence, allowing businesses to handle large datasets with minimal memory usage. It provides powerful tools for real-time stream aggregations, statistical analysis, rolling window calculations, financial simulations, and KPI tracking, enabling data-driven decision-making in areas like sales, revenue growth, and forecasting. This approach optimizes performance while delivering valuable insights across various business functions.
+
+## Future Scope:
+- Enhanced Statistical Methods: Add advanced statistical features, such as hypothesis testing, regression analysis, and Bayesian inference, to expand the analytical capabilities.
+- Real-Time Streaming: Implement real-time data processing capabilities using frameworks like Apache Kafka or Spark Streaming to handle live data feeds and make instant business decisions.
+- Generative AI Integration: Enable scenario generation, predictive text, and synthetic data creation for simulations, enhancing strategic planning and decision-making.
+
+## Contributors:
+[Aditi Dinesh Rao](https://www.linkedin.com/in/aditidrao/)
+[Usashi Surajit Roy](https://www.linkedin.com/in/usashisurajitroy/)
