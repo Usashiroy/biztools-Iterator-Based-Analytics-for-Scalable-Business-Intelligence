@@ -265,5 +265,5 @@ The **biztools** package offers efficient, iterator-based solutions for scalable
 - Generative AI Integration: Enable scenario generation, predictive text, and synthetic data creation for simulations, enhancing strategic planning and decision-making.
 
 ## Contributors:
-[Aditi Dinesh Rao](https://www.linkedin.com/in/aditidrao/)
-[Usashi Surajit Roy](https://www.linkedin.com/in/usashisurajitroy/)
+- [Aditi Dinesh Rao](https://www.linkedin.com/in/aditidrao/)
+- [Usashi Surajit Roy](https://www.linkedin.com/in/usashisurajitroy/)
