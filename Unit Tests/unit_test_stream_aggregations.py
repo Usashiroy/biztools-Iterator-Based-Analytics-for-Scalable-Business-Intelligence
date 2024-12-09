@@ -7,7 +7,7 @@ sys.path.insert(0, main_directory_path)
 import unittest
 import pandas as pd
 import numpy as np
-from stream_aggregations import StreamAggregations  # Import the class from stream_aggregations.py
+from biztools.stream_aggregations import StreamAggregations  # Import the class from stream_aggregations.py
 
 class TestStreamAggregations(unittest.TestCase):
     
