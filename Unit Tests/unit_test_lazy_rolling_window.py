@@ -7,7 +7,7 @@ sys.path.insert(0, main_directory_path)
 import unittest
 import numpy as np
 import random
-from lazy_rolling_window import LazyRollingWindow
+from biztools.lazy_rolling_window import LazyRollingWindow
 
 # Assuming LazyRollingWindow is already imported or defined in the same file.
 

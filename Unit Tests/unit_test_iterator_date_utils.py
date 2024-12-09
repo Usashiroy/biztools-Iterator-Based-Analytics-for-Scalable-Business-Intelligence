@@ -8,7 +8,7 @@ sys.path.insert(0, main_directory_path)
 import unittest
 import pandas as pd
 import numpy as np
-from iterator_date_utils import IteratorDateUtils  # Import the IteratorDateUtils class
+from biztools.iterator_date_utils import IteratorDateUtils  # Import the IteratorDateUtils class
 
 class TestIteratorDateUtils(unittest.TestCase):
     

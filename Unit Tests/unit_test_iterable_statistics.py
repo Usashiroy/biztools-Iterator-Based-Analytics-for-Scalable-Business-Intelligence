@@ -5,7 +5,7 @@ main_directory_path = os.path.abspath(os.path.join(current_directory, '..'))
 sys.path.insert(0, main_directory_path)
 
 import unittest
-from iterable_statistics import IterableStatistics
+from biztools.iterable_statistics import IterableStatistics
 
 class TestIterableStatistics(unittest.TestCase):
 

@@ -7,7 +7,7 @@ sys.path.insert(0, main_directory_path)
 
 import unittest
 import pandas as pd
-from stream_kpi_calculations import StreamKpiCalculations  # Replace with the correct import for your module
+from biztools.stream_kpi_calculations import StreamKpiCalculations  # Replace with the correct import for your module
 
 class TestStreamKpiCalculations(unittest.TestCase):
 

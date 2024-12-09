@@ -6,7 +6,7 @@ sys.path.insert(0, main_directory_path)
 
 import unittest
 import pandas as pd
-from financial_simulation import FinancialSimulation  # Replace with the correct import path
+from biztools.financial_simulation import FinancialSimulation  # Replace with the correct import path
 
 class TestFinancialSimulation(unittest.TestCase):
 

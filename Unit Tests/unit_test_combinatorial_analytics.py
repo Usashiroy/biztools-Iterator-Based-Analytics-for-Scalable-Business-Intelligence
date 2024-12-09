@@ -5,7 +5,7 @@ main_directory_path = os.path.abspath(os.path.join(current_directory, '..'))
 sys.path.insert(0, main_directory_path)
 
 import unittest
-from combinatorial_analytics import CombinatorialAnalytics
+from biztools.combinatorial_analytics import CombinatorialAnalytics
 
 class TestCombinatorialAnalytics(unittest.TestCase):
     def setUp(self):
